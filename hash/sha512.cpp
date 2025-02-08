@@ -400,7 +400,7 @@ std::string sha512_hex(unsigned char *digest) {
   char buf[2 * 64 + 1];
   buf[2 * 64] = 0;
   for (int i = 0; i < 64; i++)
-    sprintf(buf + i * 2, "%02x", digest[i]);
+    sprintf(buf + i * 2, "%02hhX", digest[i]);
   return std::string(buf);
 
 }

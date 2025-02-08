@@ -495,7 +495,7 @@ std::string sha256_hex(unsigned char *digest) {
     char buf[2*32+1];
     buf[2*32] = 0;
     for (int i = 0; i < 32; i++)
-        sprintf(buf+i*2,"%02x",digest[i]);
+        sprintf(buf+i*2,"%02hhX",digest[i]);
     return std::string(buf);
 
 }

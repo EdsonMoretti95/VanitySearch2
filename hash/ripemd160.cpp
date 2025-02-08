@@ -48,7 +48,7 @@ inline uint32_t _rotl(uint32_t x, uint8_t r) {
 
 #define Round(a,b,c,d,e,f,x,k,r) \
   a = ROL(a + f + x + k, r) + e; \
-  c = ROL(c, 10);
+  c = ROL(c, 10);              
 
 #define R11(a,b,c,d,e,x,r) Round(a, b, c, d, e, f1(b, c, d), x, 0, r)
 #define R21(a,b,c,d,e,x,r) Round(a, b, c, d, e, f2(b, c, d), x, 0x5A827999ul, r)
@@ -310,7 +310,7 @@ std::string ripemd160_hex(unsigned char *digest) {
   char buf[2 * 20 + 1];
   buf[2 * 20] = 0;
   for (int i = 0; i < 20; i++)
-    sprintf(buf + i * 2, "%02x", (int)digest[i]);
+    sprintf(buf + i * 2, "%02hhX", (int)digest[i]);
   return std::string(buf);
 
 }
